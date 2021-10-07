@@ -4,6 +4,7 @@ require('express-async-errors');
 // packages
 const express = require('express');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 // express
 const app = express();
@@ -23,8 +24,14 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 
 app.use(express.json());
 app.use(morgan('tiny'));
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
+  res.send('e-commerce api');
+});
+
+app.get('/api/v1', (req, res) => {
+  console.log(req.cookies);
   res.send('e-commerce api');
 });
 
