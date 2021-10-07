@@ -3,6 +3,7 @@ require('express-async-errors');
 
 // packages
 const express = require('express');
+const morgan = require('morgan');
 
 // express
 const app = express();
@@ -18,6 +19,7 @@ const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
 app.use(express.json());
+app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
   res.send('e-commerce api');
