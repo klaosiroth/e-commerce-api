@@ -61,8 +61,15 @@ const login = async (req, res) => {
   res.status(StatusCodes.OK).json({ user: tokenUser });
 };
 
+// Public Route
+// Logout User   =>    GET /api/v1/auth/logout
+
 const logout = async (req, res) => {
-  res.send('logout user');
+  res.cookie('token', null, {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+  });
+  res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
 
 

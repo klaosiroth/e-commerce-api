@@ -98,8 +98,8 @@ docgen build -i fileName.json -o index.html
 
 #### Logout Route
 
-- [] set token cookie equal to some string value
-- [] set expires:new Date(Date.now())
+- [x] set token cookie equal to some string value
+- [x] set expires:new Date(Date.now())
 
 #### User Routes Structure
 
