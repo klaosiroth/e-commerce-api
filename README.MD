@@ -61,11 +61,11 @@ docgen build -i fileName.json -o index.html
 
 #### Register Controller
 
-- [] create user
-- [] send response with entire user (only while testing)
-- [] check if email already in use (schema and controller)
-- [] ignore 'role'
-- [] alternative 'admin' setup
+- [x] create user
+- [x] send response with entire user (only while testing)
+- [x] check if email already in use (schema and controller)
+- [x] ignore 'role'
+- [x] alternative 'admin' setup
 
 #### Handle Password
 
