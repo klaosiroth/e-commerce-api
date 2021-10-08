@@ -124,11 +124,11 @@ docgen build -i fileName.json -o index.html
 
 #### Authorize Permissions Setup
 
-- [] hardcode
+- [x] hardcode
 
 #### Authorize Permissions Complete
 
-- [] introduce params
+- [x] introduce params
 
 #### ShowCurrentUser
 
