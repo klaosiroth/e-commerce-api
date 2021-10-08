@@ -219,8 +219,8 @@ docgen build -i fileName.json -o index.html
 
 #### Upload Image
 
-- [] if some question, re-watch 07-file-upload
-- [] images folder with two images
+- [x] if some question, re-watch 07-file-upload
+- [x] images folder with two images
 
 #### Review Model
 
