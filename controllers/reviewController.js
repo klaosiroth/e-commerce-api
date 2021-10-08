@@ -60,7 +60,26 @@ const getReview = async (req, res) => {
 // Update Review => PATCH /api/v1/reviews/:id
 
 const updateReview = async (req, res) => {
-  res.send('update review');
+  const { id: reviewId } = req.params;
+  const { rating, title, comment } = req.body;
+
+  const review = await Review.findOne({ _id: reviewId });
+
+  if (!review) {
+    throw new CustomError.NotFoundError(`No review with id: ${reviewId}`);
+  }
+
+  // review user is an object
+  // console.log(typeof review.user);
+
+  checkPermissions(req.user, review.user);
+
+  review.rating = rating;
+  review.title = title;
+  review.comment = comment;
+
+  await review.save();
+  res.status(StatusCodes.OK).json({ review });
 };
 
 // Protected Route / Admin or User
