@@ -132,8 +132,8 @@ docgen build -i fileName.json -o index.html
 
 #### ShowCurrentUser
 
-- [] get user from req
-- [] send response with user
+- [x] get user from req
+- [x] send response with user
 
 #### UpdateUserPassword
 

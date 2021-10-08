@@ -15,7 +15,7 @@ const getAllUsers = async (req, res) => {
 
 const getSingleUser = async (req, res) => {
   const user = await User.findOne({ _id: req.params.id }).select('-password');
-  
+
   if (!user) {
     throw new CustomError.NotFoundError(`No user with id : ${req.params.id}`);
   }
@@ -27,7 +27,7 @@ const getSingleUser = async (req, res) => {
 // Show Current User   =>    GET /api/v1/users/showMe
 
 const showCurrentUser = async (req, res) => {
-  res.send('show current user');
+  res.status(StatusCodes.OK).json({ user: req.user });
 };
 
 const updateUser = async (req, res) => {
