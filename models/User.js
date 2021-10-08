@@ -30,15 +30,19 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
+// hash the password method
 UserSchema.pre('save', async function (next) {
   const user = this;
 
-  // console.log(user.modifiedPaths());
-  // console.log(user.isModified('name'));
+  // check user update with user.save()
   if (!user.isModified('password')) return next();
 
   const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
+  const hashedPassword = await bcrypt.hash(user.password, salt);
+
+  // change the password to the hashed
+  user.password = hashedPassword;
+  next();
 });
 
 UserSchema.methods.comparePassword = async function (canditatePassword) {
