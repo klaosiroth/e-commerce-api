@@ -224,15 +224,15 @@ docgen build -i fileName.json -o index.html
 
 #### Review Model
 
-- [] create Review.js in models folder
-- [] create Schema
-- [] rating : {type:Number}
-- [] title: {type:String}
-- [] comment: {type:String}
-- [] user
-- [] product
-- [] set timestamps
-- [] export Review model
+- [x] create Review.js in models folder
+- [x] create Schema
+- [x] rating : {type:Number}
+- [x] title: {type:String}
+- [x] comment: {type:String}
+- [x] user
+- [x] product
+- [x] set timestamps
+- [x] export Review model
 
 #### Review Structure
 
