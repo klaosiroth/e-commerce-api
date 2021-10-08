@@ -1,8 +1,14 @@
+const { StatusCodes } = require('http-status-codes');
+const Product = require('../models/Product');
+const CustomError = require('../errors');
+
 // Protected Route / Admin Only
 // Create Product => POST /api/v1/products
 
 const createProduct = async (req, res) => {
-  res.send('create product');
+  req.body.user = req.user.userId;
+  const product = await Product.create(req.body);
+  res.status(StatusCodes.CREATED).json({ product });
 };
 
 // Public Route
