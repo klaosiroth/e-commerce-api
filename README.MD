@@ -256,7 +256,7 @@ docgen build -i fileName.json -o index.html
 
 #### Get All Reviews and Get Single Review
 
-- [] both public routes, typical setup
+- [x] both public routes, typical setup
 
 #### Delete Review
 

@@ -37,14 +37,23 @@ const createReview = async (req, res) => {
 // Get All Reviews => GET /api/v1/reviews
 
 const getAllReviews = async (req, res) => {
-  res.send('get all review');
+  const reviews = await Review.find({});
+  res.status(StatusCodes.OK).json({ reviews, count: reviews.length });
 };
 
 // Public Route
 // Get Single Review => GET /api/v1/reviews/:id
 
 const getReview = async (req, res) => {
-  res.send('get single review');
+  const { id: reviewId } = req.params;
+
+  const review = await Review.findOne({ _id: reviewId });
+
+  if (!review) {
+    throw new CustomError.NotFoundError(`No review with id: ${reviewId}`);
+  }
+
+  res.status(StatusCodes.OK).json({ review });
 };
 
 // Protected Route / Admin or User
