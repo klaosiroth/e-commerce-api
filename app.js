@@ -5,6 +5,7 @@ require('express-async-errors');
 const express = require('express');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+const fileUpload = require('express-fileupload');
 
 // express
 const app = express();
@@ -27,6 +28,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use(cookieParser(process.env.JWT_SECRET));
+app.use(fileUpload());
 
 app.get('/', (req, res) => {
   res.send('e-commerce api');
